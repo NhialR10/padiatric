@@ -1,0 +1,134 @@
+﻿@model Padiatric.Models.Announcement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Title - Announcement Details</title>
+    <style>
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .containerD {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .form-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .form-card h4 {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 30px;
+                color: #333;
+            }
+
+        .details-section {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+            .details-section dl {
+                text-align: left;
+            }
+
+            .details-section dt {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .details-section dd {
+                margin-bottom: 15px;
+                font-size: 1rem;
+            }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-edit {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+            .btn-edit:hover {
+                background-color: #218838;
+                text-decoration: none;
+            }
+
+        .btn-back {
+            background-color: #343a40; /* Dark gray button */
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+            .btn-back:hover {
+                background-color: #23272b; /* Even darker on hover */
+                text-decoration: none;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="containerD">
+        <div class="form-card">
+            <h4>@Model.Title</h4>
+            <p>Announcement Details</p>
+
+            <div class="details-section">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Content)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Content)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DatePosted)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DatePosted)
+                    </dd>
+                </dl>
+
+                <div class="button-group">
+                    <a class="btn-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                    <a class="btn-back" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

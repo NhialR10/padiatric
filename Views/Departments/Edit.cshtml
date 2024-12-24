@@ -1,0 +1,142 @@
+﻿@model Padiatric.Models.Department
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f4f7fc; 
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .containerD {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            flex-grow: 1; 
+        }
+
+        .form-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-card h4 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .form-group input {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border-radius: 5px;
+            width: auto;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+        .btn-dark {
+            background-color: #343a40;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border-radius: 5px;
+            width: auto;
+        }
+
+        .btn-dark:hover {
+            background-color: #23272b;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+   
+    </style>
+</head>
+<body>
+
+    <div class="containerD">
+        <div class="form-card">
+            <h4>Edit Department</h4>
+            <hr />
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HastaSayisi" class="control-label"></label>
+                    <input asp-for="HastaSayisi" class="form-control" />
+                    <span asp-validation-for="HastaSayisi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BosyatakSayisi" class="control-label"></label>
+                    <input asp-for="BosyatakSayisi" class="form-control" />
+                    <span asp-validation-for="BosyatakSayisi" class="text-danger"></span>
+                </div>
+                <div class="button-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-dark" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</body>
+</html>

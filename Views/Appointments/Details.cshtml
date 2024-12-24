@@ -1,0 +1,142 @@
+﻿@model Padiatric.Models.Appointment
+
+@{
+    ViewData["Title"] = "Appointment Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .containerD {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .form-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .form-card h4 {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 30px;
+                color: #333;
+            }
+
+        .details-dl {
+            margin: 20px 0;
+        }
+
+            .details-dl dt {
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                padding-right: 20px; /* Add more space for the labels */
+                white-space: nowrap; /* Prevent labels from wrapping */
+            }
+
+            .details-dl dd {
+                margin-bottom: 15px;
+                font-size: 1.1rem;
+                word-wrap: break-word; /* Allow wrapping for long content */
+                padding-left: 30px; /* Added padding to give some space from the label */
+            }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border-radius: 5px;
+            width: auto;
+        }
+
+            .btn-primary:hover {
+                background-color: #218838;
+            }
+
+        .btn-dark {
+            background-color: #343a40;
+            color: white;
+            font-size: 1.1rem;
+            padding: 12px 25px;
+            border-radius: 5px;
+            width: auto;
+        }
+
+            .btn-dark:hover {
+                background-color: #23272b;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="containerD">
+        <div class="form-card">
+            <h4>Appointment Details</h4>
+            <hr />
+            <dl class="details-dl row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AppointmentDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AppointmentDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Reason)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Reason)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Assistant)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Assistant.FirstName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Professor)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Professor.FirstName)
+                </dd>
+            </dl>
+
+            <div class="button-group">
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                <a class="btn btn-dark" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+</body>
+</html>

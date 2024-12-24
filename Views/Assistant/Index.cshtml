@@ -1,0 +1,62 @@
+﻿@model Padiatric.Models.Department
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Name - Department Details</title>
+@*     <link rel="stylesheet" href="~/css/bootwatchThemes.css" /> *@
+    <style>
+        body {
+            background-image: url('/images/department.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .department-header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="department-header">
+            <h1>@Model.Name</h1>
+        </div>
+
+        <div class="content">
+            <h3>Department Details</h3>
+            <p><strong>Available Beds:</strong> @Model.BosyatakSayisi</p>
+            <p><strong>Number of Patients:</strong> @Model.HastaSayisi</p>
+        </div>
+
+        <div class="nav-links text-center mt-4">
+            <a asp-action="Appointments" class="btn btn-outline-light">View Appointments</a>
+            <a asp-action="DutyRoster" class="btn btn-outline-light">View Duty Roster</a>
+        </div>
+    </div>
+</body>
+</html>

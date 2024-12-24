@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-image: url('/images/Register.jpg'); /* Ensure this is the correct path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .welcome-header {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for text visibility */
+            padding: 50px;
+            margin-top: 150px; /* Adjust to position the header nicely */
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .welcome-header h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                color: #f8f9fa;
+            }
+
+            .welcome-header p {
+                font-size: 1.2rem;
+                color: #f8f9fa;
+            }
+
+            .welcome-header .btn {
+                background-color: #28a745; /* Green button color */
+                color: white;
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                border-radius: 5px;
+                margin-top: 20px;
+                text-decoration: none;
+            }
+
+                .welcome-header .btn:hover {
+                    background-color: #218838; /* Darker green on hover */
+                    text-decoration: none;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-header">
+        <h1>Welcome to Pediatric Admin Dashboard</h1>
+        <p>Manage your users and settings efficiently!</p>
+        <a href="@Url.Action("Register", "Admin")" class="btn">Create A User</a> <!-- Link to Register page -->
+    </div>
+
+</body>
+</html>

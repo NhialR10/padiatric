@@ -1,0 +1,131 @@
+﻿@model Padiatric.Models.Department
+
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Name - Department Details</title>
+    <style>
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .containerD {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .details-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-section h4 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .details-section dl {
+            text-align: left;
+        }
+
+        .details-section dt {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .details-section dd {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-edit, .btn-back {
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background-color: #218838;
+        }
+
+        .btn-back {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #23272b;
+        }
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="containerD">
+        <div class="details-section">
+            <h4>@Model.Name</h4>
+            <p>Department Details</p>
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.HastaSayisi)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.HastaSayisi)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BosyatakSayisi)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BosyatakSayisi)
+                </dd>
+            </dl>
+
+            <div class="button-group">
+                <a class="btn-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                <a class="btn-back" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

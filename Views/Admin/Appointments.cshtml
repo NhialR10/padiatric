@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light background for readability */
+        }
+
+        .containerp {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background-color: #2C3E50; /* Dark theme matching navbar/footer */
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .header h2 {
+            font-size: 2.5rem;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white; /* White background for the table */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            font-size: 1.1rem;
+            color: #333; /* Dark text for better visibility */
+        }
+
+        .table th {
+            background-color: #2C3E50; /* Dark header for table */
+            color: white;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+        .table tr:nth-child(odd) {
+            background-color: #fff; /* White for odd rows */
+        }
+
+        .table tr:hover {
+            background-color: #e0e0e0; /* Light gray on hover */
+        }
+
+        .nav-links a {
+            color: #2C3E50; /* Match the new dark theme */
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="containerp">
+        <!-- Header Section -->
+        <div class="header">
+            <h2>Appointments</h2>
+        </div>
+
+        <!-- Appointments Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Reason</th>
+                    <th>Assistant</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model)
+                {
+                    <tr>
+                        <td>@appointment.AppointmentDate.ToString("g")</td>
+                        <td>@appointment.Reason</td>
+                        <td>@appointment.Assistant.FirstName @appointment.Assistant.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
